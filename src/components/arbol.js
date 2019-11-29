@@ -77,8 +77,8 @@ class Arbol extends Component {
           });
         let j = cx.length;
         for (let i = 0; i < Math.floor(Math.log2(cx.length)); i++) {
-          padrex.push(cx[Math.floor(j+1  / 2)]);
-          padrey.push(cy[Math.floor(j+1  / 2)]);
+          padrex.push(cx[Math.floor(j  )]);
+          padrey.push(cy[Math.floor(j  )]);
           j = Math.floor((j+1) / 2);
         }
         for (let i = 0; i < padrex.length+1; i++) {
