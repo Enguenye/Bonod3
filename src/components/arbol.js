@@ -15,7 +15,7 @@ class Arbol extends Component {
             <div>
                 <form>
                     Valor
-  <input id="texto" type="text" name="firstname" />
+            <input id="textito" type="text" name="firstname" />
                     <button id="nuevo" type="button">Aceptar</button>
                 </form>
 
@@ -49,8 +49,8 @@ class Arbol extends Component {
                     svg.append("line")
                         .attr("x1", distx)
                         .attr("y1", disty)
-                        .attr("x2", distx + 30)
-                        .attr("y2", disty + 30)
+                        .attr("x2", distx + 800/cont)
+                        .attr("y2", disty + 50)
                         .attr("stroke-width", 2)
                         .attr("stroke", "black");
                 }
@@ -61,26 +61,29 @@ class Arbol extends Component {
                     .attr("cy", 10)
                     .attr("rx", 10)
                     .attr("ry", 10);
-                cx.push(distx + 30);
-                cy.push(disty + 30);
+                cx.push(distx + 800/cont);
+                cy.push(disty + 50);
                 elipse.transition().style("fill", "#1C73E3")
-                    .attr("cx", distx + 30)
-                    .attr("cy", disty + 30)
+                    .attr("cx", distx + 800/cont)
+                    .attr("cy", disty + 50)
                     .attr("rx", 10)
                     .attr("ry", 10)
                     .attr("stroke", "black")
                     .ease(d3.easeElastic,1)
                     .duration(1000);
                     elipses.push(elipse);
+                    svg.append("text").attr("dx",distx + 800/cont)
+                .attr("dy",disty + 50).text(function(e){return document.getElementById("textito").value});
                             }
+                
             else {
                 distx = cx[(cx.length + 1) / 2];
                 disty = cy[(cy.length + 1) / 2]
                 svg.append("line")
                     .attr("x1", distx)
                     .attr("y1", disty)
-                    .attr("x2", distx - 30)
-                    .attr("y2", disty + 30)
+                    .attr("x2", distx - 800/cont)
+                    .attr("y2", disty + 50)
                     .attr("stroke-width", 2)
                     .attr("stroke", "black");
                 let elipse = svg.append("ellipse")
@@ -89,17 +92,19 @@ class Arbol extends Component {
                     .attr("cy", 10)
                     .attr("rx", 10)
                     .attr("ry", 10);
-                cx.push(distx - 30);
-                cy.push(disty + 30);
+                cx.push(distx - 800/cont);
+                cy.push(disty + 50);
                 elipse.transition().style("fill", "#1C73E3")
-                    .attr("cx", distx - 30)
-                    .attr("cy", disty + 30)
+                    .attr("cx", distx - 800/cont)
+                    .attr("cy", disty + 50)
                     .attr("rx", 10)
                     .attr("ry", 10)
                     .attr("stroke", "black")
                     .ease(d3.easeElastic,1)
                     .duration(1000);
                     elipses.push(elipse);
+                    svg.append("text").attr("dx",distx - 800/cont)
+                .attr("dy",disty + 50).text(function(e){return document.getElementById("textito").value});
             }
             cont = cont + 1;
         });
